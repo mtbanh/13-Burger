@@ -1,0 +1,38 @@
+<h1>Vietnamese Foods Galore!</h1>
+
+<h2>Recommend for all eaters</h2>
+
+<ul>
+  {{#each cats}}
+    {{#unless easy_eat}}
+      {{> foods/cat-block easy_eat=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>For adventerous eaters only!</h2>
+
+<ul>
+  {{#each cats}}
+    {{#if easy_eat}}
+      {{> cats/cat-block easy_eat=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Food</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Food Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="slee">Easy eats?</label><br>
+    <input type="radio" name="sleepy" value="1" checked> Easy!<br>
+    <input type="radio" name="sleepy" value="0"> Adventerous eaters only
+  </div>
+
+  <button type="submit">Add Food</button>
+</form>
