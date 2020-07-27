@@ -1,4 +1,4 @@
-var orm = require('../config/orm');
+var orm = require('../config/orm.js');
 
 var food ={
     all: function(cb){

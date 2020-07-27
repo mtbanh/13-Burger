@@ -17,10 +17,10 @@ $(()=>{
     });
 
     $('#delete-food').on('click',(event)=>{
-        var id = parseInt( $(this).data("id") );
-        console.log(event)
-        console.log(id)
-        $.ajax('api/foods/' +id,{
+        var id =  event.target.dataset.id;
+        // console.log(event)
+        // console.log(id)
+        $.ajax('/api/foods/' +id,{
             type: 'DELETE',
         }).then(()=>{
             console.log('deleted food', id)
@@ -28,12 +28,12 @@ $(()=>{
         })
     });
 
-    $('.change-eaten').on('click', ((event)=>{
-        var id = $(this).data("id");
+    $('.change-eaten').on('click', (event)=>{
+        var id =  event.target.dataset.id;
         console.log(id)
-        var newEaten = $(this).data('eaten');
+        var newEaten = event.target.dataset.eaten;
         console.log(event)
-        var newEatenState ={ eaten: 'true'};
+        var newEatenState ={ eaten: 0};
 
         $.ajax('api/foods/' + id, {
             type: 'PUT',
@@ -42,5 +42,5 @@ $(()=>{
             console.log('chaged eaten to' + newEatenState);
             location.reload();
         });
-    }));
+    });
 })

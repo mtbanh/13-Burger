@@ -23,7 +23,7 @@ router.post('/api/foods', (req, res)=>{
 
 router.put('/api/foods/:id', (req,res)=>{
     var condition = 'id = ' + req.params.id;
-    foods.update({eaten : req.body.eaten}, condition, (result)=>{
+    food.update({eaten : req.body.eaten}, condition, (result)=>{
         if(result.changedRows == 0){
             return res.status(404).end();
         }else {res.status(200).end()};
@@ -31,13 +31,13 @@ router.put('/api/foods/:id', (req,res)=>{
 })
 
 router.delete('/api/foods/:id', (req, res)=>{
-    var condition = "id " + req.params.id;
+    var condition = "id = " + req.params.id;
 
-    foods.delete(condition, (result)=>{
+    food.delete(condition, (result)=>{
         if(result.affectedRows == 0){
             return res.status(404).end();
         }else{res.status(200).end()};
     })
-})
+});
 
 module.exports = router
