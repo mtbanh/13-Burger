@@ -4,7 +4,7 @@
     <p class="lead">Welcome to the collection of all your Vietnamese Food cravings.</p>
   </div>
 
-  <div class="row">
+  {{!-- <div class="row">
     <div class="col-md-12">
       <div class="card border border primary">
         <div class="card-header bg-primary text-white">What would you like to eat today?</div>
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <div class="row mt-4">
     <div class="col-md-6 mt-4">
@@ -31,7 +31,7 @@
       <div class="card-body">
         {{#each foods}}
           {{#unless eaten}}
-            {{> foods/food-block eaten=true}}
+            {{> foods/food-eaten eaten=true}}
           {{/unless}}
         {{/each}}
       </div>
@@ -61,12 +61,6 @@
       <input type="text" id="add-food" class: 'form-control' name="name">
     </div>
 
-    {{!-- <div class="form-group">
-    <label for="slee">Easy eats?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Easy!<br>
-    <input type="radio" name="sleepy" value="0"> Adventerous eaters only
-  </div> --}}
-
-    <button type="submit">Add Food</button>
+    <button type="submit button" class="btn btn-primary">Add Food</button>
   </form>
 </div>

@@ -17,6 +17,12 @@ var food ={
         orm.updateOne('foods', objColVals, condition, (res)=>{
             cb(res)
         })
+    },
+
+    delete: (condition, cb)=>{
+        orm.deleteOne('foods', condition, (res)=>{
+            cb(res)
+        })
     }
 };
 

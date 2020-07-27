@@ -1,4 +1,5 @@
 var connection = require('./connection.js');
+const { query } = require('express');
 
 var printQuestionMarks = (num) => {
     var arr = [];
@@ -64,6 +65,17 @@ var orm = {
         console.log(queryStr);
         connection.query(queryStr, (err, result)=>{
             if (err) return err;
+            cb(result);
+        })
+    },
+
+    deleteOne: (table, condition, cb)=>{
+        var queryStr = `DELETE FROM ` + table;
+        queryStr += " WHERE ";
+        queryStr += condition;
+
+        connection.query(queryStr, (err, result)=>{
+            if(err) {return err};
             cb(result);
         })
     }
